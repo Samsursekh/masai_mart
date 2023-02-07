@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Product Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #navbar {
+        width: 100%;
+        height: 70px;
+        background-color: blue;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      #navbar > a {
+        color: white;
+        text-decoration: none;
+      }
+      #heroSection {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      #sideBar {
+        width: 23%;
+        border: 1px solid red;
+        height: 100vh;
+        text-align: center;
+      }
+      #Container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        padding: 10px;
+        width: 75%;
+      }
+
+      #Container > .cards {
+        border: 1px solid blue;
+        text-align: center;
+      }
+      .images {
+        width: 200px;
+      }
+      .fa-heart {
+        color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="navbar">
+      <a href="./index.html"><h3>Products</h3></a>
+      <a href="./wishlist.html"><h3>wishList</h3></a>
+    </nav>
+    <div id="heroSection">
+      <div id="sideBar">
+        <h2>Filter By Category</h2>
+        <select name="category" id="category" onchange="handleChange(this)">
+          <option value="men">Men</option>
+          <option value="women">Women</option>
+          <option value="kids">Kids</option>
+          <option value="homedecor ">Homedecor</option>
+        </select>
+      </div>
+      <div id="Container"></div>
+    </div>
+  </body>
+</html>
+<script>
+  const dataFetchFunc = () => {
+    const url = `https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products`;
+    fetch(url)
+      .then((res) => {
+        getDataFunc(res.json());
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  dataFetchFunc();
+
+  const getDataFunc = (data) => {
+    let allData = data
+      .then((res) => {
+        allTheProductsFunc(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const allTheProductsFunc = (allProducts) => {
+    const data = allProducts;
+    //    console.log(data);
+    data &&
+      data.forEach((element) => {
+        let card = document.createElement("div");
+        card.setAttribute("class", "cards");
+
+        let Container = document.querySelector("#Container");
+        let heading1 = document.createElement("h3");
+        let heading2 = document.createElement("h3");
+        let image = document.createElement("img");
+        image.setAttribute("class", "images");
+        image.src =
+          "https://images.unsplash.com/photo-1610130383669-95917c70ca20?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGxhZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60";
+        let category = document.createElement("h4");
+        let price = document.createElement("h4");
+        let wishlist = document.createElement("p");
+        wishlist.setAttribute("class", "fa fa-heart ");
+        wishlist.addEventListener("click", () => {
+          wishlist.style.color = "red";
+        });
+
+        heading1.innerText = `Name : ${element.brand}`;
+        heading1.style.color = heading2.innerText = `Title : ${element.title}`;
+        category.innerText = `Category : ${element.category}`;
+        price.innerText = `Price : ${element.price}`;
+        card.append(image, heading1, heading2, category, price, wishlist);
+        Container.append(card);
+        
+      });
+  };
+
+  const handleChange = (obj) => {
+    console.log(obj.value);
+  };
+</script>
