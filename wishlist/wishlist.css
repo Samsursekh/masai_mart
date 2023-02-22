@@ -9,6 +9,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: fixed;
+    top: 0;
+    
   }
   #navbar > a {
     color: white;
@@ -18,12 +21,6 @@
     display: flex;
     justify-content: space-evenly;
   }
-  #sideBar {
-    width: 23%;
-    border: 1px solid red;
-    height: 100vh;
-    text-align: center;
-  }
   #container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -31,11 +28,13 @@
     padding: 10px;
     width: 75%;
     margin: auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
   }
 
   #container > .cards {
-    border: 1px solid blue;
-    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;    text-align: center;
+    padding: 10px;
   }
   .images {
     width: 200px;

@@ -20,9 +20,40 @@
   }
   #sideBar {
     width: 23%;
-    border: 1px solid red;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
     height: 100vh;
     text-align: center;
+  }
+  #category-selector{
+   color: teal;
+   font-weight: 800;
+   font-size: 18px;
+   border: 2px solid teal;
+  }
+
+  #low{
+    color: teal;
+    font-weight: 700;
+    margin-top: 20px;
+    padding: 10px 15px;
+    border: 2px solid teal;
+    background-color: white;
+    cursor: pointer;
+  }
+
+  #high{
+    color: teal;
+    font-weight: 700;
+    margin-top: 20px;
+    padding: 10px 15px;
+    border: 2px solid teal;
+    background-color: white;
+    cursor: pointer;
+  }
+  #high:hover,#low:hover{
+    color: white;
+    background-color: teal;
   }
   #Container {
     display: grid;
@@ -30,11 +61,12 @@
     gap: 20px;
     padding: 10px;
     width: 75%;
+    margin-bottom: 30px;
   }
 
   #Container > .cards {
-    border: 1px solid blue;
-    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;    text-align: center;
+    padding: 10px;
   }
   .images {
     width: 200px;
@@ -54,7 +86,6 @@
       }
       #sideBar {
         width: 40%;
-        border: 1px solid red;
         height: 100vh;
         text-align: center;
       }
@@ -70,7 +101,6 @@
       }
       #sideBar {
         width: 35%;
-        border: 1px solid red;
         height: 100vh;
         text-align: center;
       }
@@ -86,7 +116,6 @@
       }
       #sideBar {
         width: 30%;
-        border: 1px solid red;
         height: 100vh;
         text-align: center;
       }

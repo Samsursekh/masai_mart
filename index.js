@@ -21,9 +21,14 @@ dataFetchFunc();
 
 const handleSelect = () => {
   const filterItems = document.getElementById("category-selector").value;
-  console.log(filterItems);
+  console.log(filterItems, "Checking Filter Items is there or not");
   const filteredList = allData.filter((elem) => {
+    if(filterItems == []){
+         allTheProductsFunc(allData);
+         return "Empty";
+    }
     return elem.category === filterItems;
+   
   });
   console.log(filteredList);
   allTheProductsFunc(filteredList);

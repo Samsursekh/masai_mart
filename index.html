@@ -18,7 +18,12 @@
     </nav>
     <div id="heroSection">
       <div id="sideBar">
-        <h2>Filter By Category</h2>
+        <h2 style="color:blue; font-weight: 600px ; margin-top: 30px;">Sort By Price</h2>
+        <div>
+          <button id="high" onclick="sortHighToLow()">Price High to Low</button>
+          <button id="low" onclick="sortLowToHigh()">Price Low to High</button>
+         </div>
+         <h2 style="color:blue; font-weight: 600px ; margin-bottom: 30px; margin-top: 30px;">Filter By Category</h2>
         <select id="category-selector" onchange="handleSelect()">
           <option value="">All Categories</option>
           <option value="men">Men</option>
@@ -26,11 +31,6 @@
           <option value="women">Women</option>
           <option value="homedecor">Home Decor</option>
         </select>
-        <div>
-          <button id="high" onclick="sortHighToLow()">Price High to Low</button>
-          <button id="low" onclick="sortLowToHigh()">Price Low to High</button>
-
-         </div>
         <!-- <div id="product-list"></div> -->
       </div>
      
